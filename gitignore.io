@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods,swiftpackagemanager,swiftpm,carthage
-# Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode,cocoapods,swiftpackagemanager,swiftpm,carthage
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,swiftpm,cocoapods,carthage
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,swiftpackagemanager,swiftpm,cocoapods,carthage
 
 ### Carthage ###
 # Carthage
@@ -127,4 +127,4 @@ xcuserdata
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods,swiftpackagemanager,swiftpm,carthage
+# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,swiftpm,cocoapods,carthage
