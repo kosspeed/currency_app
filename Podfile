@@ -6,6 +6,7 @@ target 'CurrencyApp' do
   use_frameworks!
 
   # Pods for CurrencyApp
+  pod 'Moya', '~> 14.0'
 
   target 'CurrencyAppTests' do
     inherit! :search_paths

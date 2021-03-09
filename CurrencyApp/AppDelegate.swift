@@ -18,3 +18,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+/Users/khwansiricharoenporn/Desktop/CurrencyApp/gitignore.io
