@@ -8,14 +8,23 @@
 import Foundation
 
 class GetConversionResponse: BaseResponse {
+    var valid: Bool?
+    var updated: Int64?
     var conversion: ConversionResponse?
 }
 
-struct ConversionResponse: Decodable {
+class ConversionResponse: Decodable {
     var from: String?
     var to: String?
     var amount: Double?
     var result: Double?
+    
+    init(from: String, to: String, amount: Double, result: Double) {
+        self.from = from
+        self.to = to
+        self.amount = amount
+        self.result = result
+    }
 }
 
 //MARK: Transform

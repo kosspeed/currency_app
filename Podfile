@@ -10,7 +10,8 @@ target 'CurrencyApp' do
 
   target 'CurrencyAppTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Moya', '~> 14.0'
+    
   end
 
   target 'CurrencyAppUITests' do

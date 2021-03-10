@@ -17,8 +17,8 @@ protocol CurrencyRemoteDataSource {
 class CurrencyRemoteDataSourceImpl: CurrencyRemoteDataSource {
     private let provider: MoyaProvider<CurrencyAPI>
     
-    init() {
-        provider = MoyaProvider<CurrencyAPI>()
+    init(provider: MoyaProvider<CurrencyAPI> = MoyaProvider<CurrencyAPI>()) {
+        self.provider = provider
     }
     
     func getCurrencies(request: GetCurrenciesRequest, completion: @escaping (Currency) -> Void, failure: @escaping (CurrencyError) -> Void) {

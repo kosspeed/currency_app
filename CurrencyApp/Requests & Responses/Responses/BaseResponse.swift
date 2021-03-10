@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BaseResponse: Decodable {
-    var valid: Bool?
-    var updated: Int64?
+protocol BaseResponse: Decodable {
+    var valid: Bool? { get set }
+    var updated: Int64? { get set }
 }
