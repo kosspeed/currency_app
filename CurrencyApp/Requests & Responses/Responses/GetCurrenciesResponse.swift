@@ -8,14 +8,16 @@
 import Foundation
 
 class GetCurrenciesResponse: BaseResponse {
-    var currencies: [String: Any]?
+    var valid: Bool?
+    var updated: Int64?
+    var currencies: [String: String]?
 }
 
 //MARK: Transform
 extension GetCurrenciesResponse {
     var entity: Currency {
         let details: [CurrencyDetail] = currencies?.map {
-            CurrencyDetail(name: $0.key, value: $0.value as? String ?? "")
+            CurrencyDetail(name: $0.key, value: $0.value)
         } ?? []
         
         return Currency(details: details)

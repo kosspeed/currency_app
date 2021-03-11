@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol GetCoversionUseCase {
+protocol GetConversionUseCase {
     func execute(from: String, to: String, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void)
 }
 
-class GetCoversionUseCaseImpl: GetCoversionUseCase {
+class GetConversionUseCaseImpl: GetConversionUseCase {
     private let repository: CurrencyRepository
     
     init(repository: CurrencyRepository = CurrencyRepositoryImpl()) {

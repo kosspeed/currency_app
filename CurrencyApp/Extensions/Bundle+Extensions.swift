@@ -18,12 +18,21 @@ extension Bundle {
     }
     
     static func plistValue(inBundle bundle: Bundle = .main,
-                              forResource resource: String,
-                              forKey key: String) -> Any? {
+                           forResource resource: String,
+                           forKey key: String) -> Any? {
         guard let resource = getPlist(inBundle: bundle, forResource: resource) else {
             return nil
         }
         
         return resource[key]
+    }
+    
+    static func loadDataInJSONFile(fileName: String, type: AnyClass) -> Data? {
+        let bundle = Bundle(for: type)
+        guard let filePath = bundle.path(forResource: fileName, ofType: "json"),
+              let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
+            return nil
+        }
+        return data
     }
 }

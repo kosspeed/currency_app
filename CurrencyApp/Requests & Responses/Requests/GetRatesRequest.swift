@@ -8,13 +8,3 @@
 import Foundation
 
 class GetRatesRequest: BaseRequest {}
-
-//MARK: Transform
-extension GetRatesRequest {
-    var urlParameters: [String: Any] {
-        return [
-            "key": key,
-            "output": apiOutput
-        ]
-    }
-}

@@ -10,4 +10,5 @@ import Foundation
 protocol Requestable: Encodable {
     var key: String { get }
     var apiOutput: String { get }
+    var urlParametersJoined: String { get }
 }

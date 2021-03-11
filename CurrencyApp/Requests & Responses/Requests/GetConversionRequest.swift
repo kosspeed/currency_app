@@ -8,26 +8,17 @@
 import Foundation
 
 class GetConversionRequest: BaseRequest {
+    override var urlParametersJoined: String {
+        return super.urlParametersJoined + "&from=\(from)&to=\(to)&amount=\(amount)"
+    }
+    
     var from: String
     var to: String
     var amount: Double
-    
+
     init(from: String, to: String, amount: Double) {
         self.from = from
         self.to = to
         self.amount = amount
-    }
-}
-
-//MARK: Transform
-extension GetConversionRequest {
-    var urlParameters: [String: Any] {
-        return [
-            "key": key,
-            "output": apiOutput,
-            "from": from,
-            "to": to,
-            "amount": amount
-        ]
     }
 }

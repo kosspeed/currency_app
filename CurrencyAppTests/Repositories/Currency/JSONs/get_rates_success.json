@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "updated": 12346,
+  "base": "THB",
+  "rates": {
+      "THB": 1.234,
+      "USD": 34.0
+  }
+}

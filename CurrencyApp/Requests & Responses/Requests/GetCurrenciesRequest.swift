@@ -8,13 +8,3 @@
 import Foundation
 
 class GetCurrenciesRequest: BaseRequest {}
-
-//MARK: Transform
-extension GetCurrenciesRequest {
-    var urlParameters: [String: Any] {
-        return [
-            "key": key,
-            "output": apiOutput
-        ]
-    }
-}

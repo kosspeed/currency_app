@@ -8,12 +8,19 @@
 import Foundation
 
 class CurrencyErrorResponse: BaseResponse {
+    var valid: Bool?
+    var updated: Int64?
     var error: CurrencyErrorDetailResponse?
 }
 
-struct CurrencyErrorDetailResponse: Decodable {
+class CurrencyErrorDetailResponse: Decodable {
     var code: Int?
     var message: String?
+    
+    init(code: Int, message: String) {
+        self.code = code
+        self.message = message
+    }
 }
 
 //MARK: Transform

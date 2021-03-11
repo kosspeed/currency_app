@@ -1,5 +1,5 @@
 //
-//  MoyaProvider+Extensions.swift
+//  Moya+Extensions.swift
 //  CurrencyApp
 //
 //  Created by Khwan Siricharoenporn on 10/3/2564 BE.
@@ -30,3 +30,15 @@ extension MoyaProvider {
         }
     }
 }
+
+extension TargetType {
+    func endpointForAPI(response: EndpointSampleResponse) -> Endpoint {
+        return Endpoint(url: baseURL.absoluteString,
+                        sampleResponseClosure: { response },
+                        method: method,
+                        task: task,
+                        httpHeaderFields: headers)
+    }
+}
+
+
