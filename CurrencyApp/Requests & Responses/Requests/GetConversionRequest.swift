@@ -8,8 +8,14 @@
 import Foundation
 
 class GetConversionRequest: BaseRequest {
-    override var urlParametersJoined: String {
-        return super.urlParametersJoined + "&from=\(from)&to=\(to)&amount=\(amount)"
+    override var urlParameters: [String: Any] {
+        return [
+            "key": key,
+            "output": apiOutput,
+            "from": from,
+            "to": to,
+            "amount": amount
+        ]
     }
     
     var from: String

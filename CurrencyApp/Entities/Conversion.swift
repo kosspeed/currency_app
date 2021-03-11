@@ -8,6 +8,7 @@
 import Foundation
 
 struct Conversion {
+    var valid: Bool
     var from: String
     var to: String
     var amount: Double
