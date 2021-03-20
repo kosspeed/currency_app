@@ -22,7 +22,7 @@ extension SelectCurrencyPresenter: SelectCurrencyPresentable {
         let currencies = buildCurrencies(currencies: response.currencies,
                                          rates: response.rates)
         
-        displayable?.displayCurrencies(viewModel: .init(currencies: currencies))
+        displayable?.displayGetCurrencies(viewModel: .init(currencies: currencies))
     }
     
     func presentSetSearchState(response: SelectCurrency.SetSearchState.Response) {
@@ -46,8 +46,8 @@ extension SelectCurrencyPresenter: SelectCurrencyPresentable {
             var rate = rates?
                 .filter { $0.name == currency.name }
                 .first?
-                .value ?? 0.0
-            let formattedRate = rate.roundToPlaces(places: 2).commas
+                .value
+            let formattedRate = rate?.roundToPlaces(places: 2).commas
             
             let emojiNotNil = currency.emoji != nil
             let symbolNotNil = currency.symbol != nil
