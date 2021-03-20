@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetConversionUseCase {
-    func execute(from: String, to: String, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void)
+    func execute(from: RateDetail, to: RateDetail, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void)
 }
 
 class GetConversionUseCaseImpl: GetConversionUseCase {
@@ -18,8 +18,17 @@ class GetConversionUseCaseImpl: GetConversionUseCase {
         self.repository = repository
     }
     
-    func execute(from: String, to: String, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void) {
-        let request = GetConversionRequest(from: from, to: to, amount: amount)
-        repository.getConversion(request: request, completion: completion, failure: failure)
+    func execute(from: RateDetail, to: RateDetail, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void) {
+        let request = GetConversionRequest(from: from.name, to: to.name, amount: amount)
+        repository.getConversion(request: request, completion: { (conversion) in
+            if conversion.valid {
+                completion(conversion)
+            } else {
+                let detail = CurrencyErrorDetail(code: 9999, message: "Something went wrong!. \nYou can retry by using paid subscription token.")
+                let error = CurrencyError(detail: detail)
+                
+                failure(error)
+            }
+        }, failure: failure)
     }
 }

@@ -51,6 +51,8 @@ class MockCurrencyRepositoryImpl: CurrencyRepositoryImpl {
         switch result {
         case .success:
             completion(MockCurrencyResponseFactory.conversionResponse.entity)
+        case .failure416:
+            failure(MockCurrencyResponseFactory.failure416Response.entity)
         default:
             failure(MockCurrencyErrorResponseFactory.customErrorResponse().entity)
         }

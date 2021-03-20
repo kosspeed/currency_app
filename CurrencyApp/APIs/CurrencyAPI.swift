@@ -33,12 +33,12 @@ extension CurrencyAPI: TargetType {
     
     var path: String {
         switch self {
-        case .getCurrencies(let request):
-            return "/api/v1/currencies" + request.urlParametersJoined
-        case .getRates(let request):
-            return "/api/v1/rates" + request.urlParametersJoined
-        case .getConversion(let request):
-            return "/api/v1/convert" + request.urlParametersJoined
+        case .getCurrencies:
+            return "/api/v1/currencies"
+        case .getRates:
+            return "/api/v1/rates"
+        case .getConversion:
+            return "/api/v1/convert"
         }
     }
     
@@ -55,7 +55,17 @@ extension CurrencyAPI: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .getCurrencies(let request):
+            return .requestParameters(parameters: request.urlParameters,
+                                      encoding: URLEncoding.default)
+        case .getRates(let request):
+            return .requestParameters(parameters: request.urlParameters,
+                                      encoding: URLEncoding.default)
+        case .getConversion(let request):
+            return .requestParameters(parameters: request.urlParameters,
+                                      encoding: URLEncoding.default)
+        }
     }
     
     var headers: [String : String]? {

@@ -14,4 +14,6 @@ struct Currency {
 struct CurrencyDetail {
     var name: String
     var value: String
+    var symbol: String?
+    var emoji: String?
 }

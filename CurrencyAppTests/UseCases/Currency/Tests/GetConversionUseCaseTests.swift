@@ -19,7 +19,7 @@ class GetConversionUseCaseTests: XCTestCase {
         let useCase = GetConversionUseCaseImpl(repository: repository)
         
         //act
-        useCase.execute(from: "THB", to: "USD", amount: 1.234, completion: { (conversion) in
+        useCase.execute(from: .init(name: "THB", value: 0), to: .init(name: "USD", value: 0), amount: 1.234, completion: { (conversion) in
             /*
              from = "THB"
              to = "USD",
@@ -44,12 +44,27 @@ class GetConversionUseCaseTests: XCTestCase {
         let useCase = GetConversionUseCaseImpl(repository: repository)
         
         //act
-        useCase.execute(from: "", to: "", amount: 0, completion: { (conversion) in
+        useCase.execute(from: .init(name: "", value: 0), to: .init(name: "", value: 0), amount: 0, completion: { (conversion) in
            
         }, failure: { (error) in
             //assert
             XCTAssertEqual(error.detail.code, 9999)
             XCTAssertEqual(error.detail.message, "Default Error")
+        })
+    }
+    
+    func test_executeFailure416() {
+        //arrange
+        let repository = MockCurrencyRepositoryImpl(result: .failure416)
+        let useCase = GetConversionUseCaseImpl(repository: repository)
+        
+        //act
+        useCase.execute(from: .init(name: "", value: 0), to: .init(name: "", value: 0), amount: 0, completion: { (conversion) in
+           
+        }, failure: { (error) in
+            //assert
+            XCTAssertEqual(error.detail.code, 416)
+            XCTAssertEqual(error.detail.message, "Your subscription plan does not allow you to use the %s endpoint")
         })
     }
 }

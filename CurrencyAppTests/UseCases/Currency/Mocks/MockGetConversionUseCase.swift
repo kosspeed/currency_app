@@ -20,7 +20,7 @@ class MockGetConversionUseCaseImpl: GetConversionUseCaseImpl {
         self.result = result
     }
     
-    override func execute(from: String, to: String, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void) {
+    override func execute(from: RateDetail, to: RateDetail, amount: Double, completion: @escaping (Conversion) -> Void, failure: @escaping (CurrencyError) -> Void) {
         switch result {
         case .success:
             completion(MockCurrencyResponseFactory.conversionResponse.entity)

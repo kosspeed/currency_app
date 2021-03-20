@@ -30,7 +30,8 @@ class ConversionResponse: Decodable {
 //MARK: Transform
 extension GetConversionResponse {
     var entity: Conversion {
-        return Conversion(from: conversion?.from ?? "",
+        return Conversion(valid: valid ?? false,
+                          from: conversion?.from ?? "",
                           to: conversion?.to ?? "",
                           amount: conversion?.amount ?? 0,
                           result: conversion?.result ?? 0)

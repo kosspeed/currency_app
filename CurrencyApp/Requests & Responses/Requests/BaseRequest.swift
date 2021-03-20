@@ -20,7 +20,10 @@ class BaseRequest: RequestConfigable, Requestable {
         return Constants.APIOutput.json.rawValue
     }
     
-    var urlParametersJoined: String {
-        return "?key=\(key)&output=\(apiOutput)"
+    var urlParameters: [String: Any] {
+        return [
+            "key": key,
+            "output": apiOutput
+        ]
     }
 }
