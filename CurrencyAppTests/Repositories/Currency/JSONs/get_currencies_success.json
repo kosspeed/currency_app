@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "updated": 12346,
+  "currencies": {
+      "THB": "Thai Baht",
+      "USD": "US Dollar"
+  }
+}
