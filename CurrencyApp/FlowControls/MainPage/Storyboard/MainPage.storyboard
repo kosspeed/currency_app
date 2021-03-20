@@ -27,10 +27,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq9-bk-b3m">
                                         <rect key="frame" x="19.5" y="0.0" width="355" height="160"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nft-f2-Qxk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nft-f2-Qxk">
                                                 <rect key="frame" x="8" y="15" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Geb-va-dNw"/>
+                                                    <constraint firstAttribute="width" constant="50" id="F4h-zZ-o2b"/>
                                                     <constraint firstAttribute="height" constant="50" id="auj-1I-cE4"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -69,7 +69,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_right_chevron" translatesAutoresizingMaskIntoConstraints="NO" id="2ad-bt-pCt">
                                                 <rect key="frame" x="317" y="25" width="20" height="20"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W47-s4-hba">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W47-s4-hba" customClass="SelectCurrencyButton" customModule="CurrencyApp" customModuleProvider="target">
                                                 <rect key="frame" x="307" y="15" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="4mD-rQ-b77"/>
@@ -123,7 +123,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="esB-YT-ZVj"/>
                                                     <constraint firstAttribute="height" constant="30" id="uuZ-qI-AUY"/>
                                                 </constraints>
-                                                <state key="normal" image="ic_switch"/>
+                                                <state key="normal" image="ic_conversion"/>
                                                 <connections>
                                                     <action selector="convertButtonDidTapped:" destination="R7j-at-pah" eventType="touchUpInside" id="aoz-mh-p5c"/>
                                                 </connections>
@@ -133,10 +133,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l65-T4-5bO">
                                         <rect key="frame" x="19.5" y="230" width="355" height="160"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtp-xh-wvj">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rtp-xh-wvj">
                                                 <rect key="frame" x="8" y="15" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Xga-Ps-FaS"/>
+                                                    <constraint firstAttribute="width" constant="50" id="u3G-V0-RYi"/>
                                                     <constraint firstAttribute="height" constant="50" id="vns-TH-85e"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -163,7 +163,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_right_chevron" translatesAutoresizingMaskIntoConstraints="NO" id="8xO-u8-ake">
                                                 <rect key="frame" x="317" y="25" width="20" height="20"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-gp-RXC">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-gp-RXC" customClass="SelectCurrencyButton" customModule="CurrencyApp" customModuleProvider="target">
                                                 <rect key="frame" x="307" y="15" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="dpi-zo-ePf"/>
@@ -220,6 +220,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="V2E-VT-5j9"/>
                     <connections>
+                        <outlet property="bottomSelectCurrencyButton" destination="lsg-gp-RXC" id="X0B-GN-MEh"/>
                         <outlet property="currencyAmountBottomLabel" destination="evX-J8-bEx" id="xE5-et-8h0"/>
                         <outlet property="currencyAmountTopTextField" destination="320-BV-6az" id="peo-T8-sSU"/>
                         <outlet property="currencyBottomView" destination="l65-T4-5bO" id="FTP-nn-Ucx"/>
@@ -231,6 +232,7 @@
                         <outlet property="currencySymbolTopLabel" destination="Nft-f2-Qxk" id="wUk-wf-3XN"/>
                         <outlet property="currencyTopView" destination="Fq9-bk-b3m" id="aL3-8X-PUJ"/>
                         <outlet property="switchButton" destination="65C-NZ-tkV" id="0Hc-t2-k4e"/>
+                        <outlet property="topSelectCurrencyButton" destination="W47-s4-hba" id="tml-rG-aeU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yd-xR-eQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,6 +258,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_conversion" width="170.66667175292969" height="170.66667175292969"/>
         <image name="ic_right_chevron" width="170.66667175292969" height="170.66667175292969"/>
         <image name="ic_switch" width="170.66667175292969" height="170.66667175292969"/>
     </resources>

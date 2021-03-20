@@ -19,7 +19,12 @@ class MainPageRouter:  MainPageDataPassing {
 
 //MARK: Routable
 extension MainPageRouter: MainPageRoutable {
-    func routeToCurrencySelection() {
+    func routeToCurrencySelection(mode: SelectCurrencyMode) {
+        let destination = SelectCurrencyViewController.make()
+        destination.router.dataStore?.mode = mode
+        destination.router.dataStore?.currencies = dataStore?.currency?.details
+        destination.router.dataStore?.rates = dataStore?.rate?.details
         
+        viewController?.navigationController?.pushViewController(destination, animated: true)
     }
 }

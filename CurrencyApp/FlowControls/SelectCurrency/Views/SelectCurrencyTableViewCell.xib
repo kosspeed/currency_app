@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectCurrencyTableViewCellID" id="KGk-i7-Jjw" customClass="SelectCurrencyTableViewCell" customModule="CurrencyApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1G-9I-s51">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emoji" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ay-Pe-b0T">
+                                <rect key="frame" x="8" y="15" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dvX-5W-6o0"/>
+                                    <constraint firstAttribute="width" constant="50" id="gem-jt-otB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.30660822989999997" green="0.32806611060000002" blue="0.41962260010000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VMC-Hh-380">
+                                <rect key="frame" x="66" y="15" width="246" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buH-s0-vfd">
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAf-WZ-Nqo">
+                                        <rect key="frame" x="0.0" y="42" width="246" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.6128272414" green="0.65302962060000003" blue="0.78433686489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currency symbol" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2b-G1-Osr">
+                                        <rect key="frame" x="0.0" y="67.5" width="246" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.6128272414" green="0.65302962060000003" blue="0.78433686489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoE-q3-tVF">
+                                        <rect key="frame" x="0.0" y="91.5" width="246" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="** Rate base from USD" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM5-Dq-nA7">
+                                        <rect key="frame" x="0.0" y="118" width="246" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="1" green="0.42638122747429352" blue="0.37658726704523859" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94911199810000002" green="0.95273345710000001" blue="0.96863824129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="VMC-Hh-380" firstAttribute="leading" secondItem="2ay-Pe-b0T" secondAttribute="trailing" constant="8" id="2TC-BV-gjo"/>
+                            <constraint firstItem="VMC-Hh-380" firstAttribute="top" secondItem="2ay-Pe-b0T" secondAttribute="top" id="8DX-iy-4Fq"/>
+                            <constraint firstItem="2ay-Pe-b0T" firstAttribute="leading" secondItem="V1G-9I-s51" secondAttribute="leading" constant="8" id="9pW-6P-een"/>
+                            <constraint firstAttribute="trailing" secondItem="VMC-Hh-380" secondAttribute="trailing" constant="8" id="AUL-4h-oPE"/>
+                            <constraint firstAttribute="height" constant="160" id="dFQ-Ka-GBV"/>
+                            <constraint firstAttribute="bottom" secondItem="VMC-Hh-380" secondAttribute="bottom" constant="15" id="l1U-xg-S7F"/>
+                            <constraint firstItem="2ay-Pe-b0T" firstAttribute="top" secondItem="V1G-9I-s51" secondAttribute="top" constant="15" id="yxd-Td-0SP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="V1G-9I-s51" secondAttribute="bottom" id="44g-VI-fae"/>
+                    <constraint firstItem="V1G-9I-s51" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="H3e-03-HA6"/>
+                    <constraint firstAttribute="trailing" secondItem="V1G-9I-s51" secondAttribute="trailing" id="Ur3-89-hnS"/>
+                    <constraint firstItem="V1G-9I-s51" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uxU-p6-wSF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="baseView" destination="V1G-9I-s51" id="bUH-cf-xBE"/>
+                <outlet property="currencyCodeLabel" destination="buH-s0-vfd" id="yCQ-s9-8Ja"/>
+                <outlet property="currencyNameLabel" destination="XAf-WZ-Nqo" id="guA-mp-zjp"/>
+                <outlet property="currencyRateLabel" destination="RoE-q3-tVF" id="YQh-9p-Sdc"/>
+                <outlet property="currencySymbolLabel" destination="I2b-G1-Osr" id="LVY-aU-qq4"/>
+                <outlet property="flagLabel" destination="2ay-Pe-b0T" id="sT0-Ch-53j"/>
+                <outlet property="remarkLabel" destination="mM5-Dq-nA7" id="ObO-LV-AaF"/>
+            </connections>
+            <point key="canvasLocation" x="18.840579710144929" y="57.589285714285708"/>
+        </tableViewCell>
+    </objects>
+</document>

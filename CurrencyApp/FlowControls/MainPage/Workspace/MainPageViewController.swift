@@ -15,6 +15,7 @@ class MainPageViewController: UIViewController {
     @IBOutlet private weak var currencyCodeTopLabel: UILabel!
     @IBOutlet private weak var currencyNameTopLabel: UILabel!
     @IBOutlet private weak var currencyAmountTopTextField: UITextField!
+    @IBOutlet private weak var topSelectCurrencyButton: SelectCurrencyButton!
     
     @IBOutlet private weak var switchButton: UIButton!
     
@@ -23,6 +24,7 @@ class MainPageViewController: UIViewController {
     @IBOutlet private weak var currencyCodeBottomLabel: UILabel!
     @IBOutlet private weak var currencyNameBottomLabel: UILabel!
     @IBOutlet private weak var currencyAmountBottomLabel: UILabel!
+    @IBOutlet private weak var bottomSelectCurrencyButton: SelectCurrencyButton!
     
     //MARK: Properties
     private var textFieldTimer: Timer?
@@ -44,11 +46,11 @@ class MainPageViewController: UIViewController {
     
     //MARK: IBAction
     @IBAction func changeCurrencyTopButtonTapped(_ sender: Any) {
-        routeToCurrencySelection()
+        routeToCurrencySelection(button: topSelectCurrencyButton)
     }
     
     @IBAction func changeCurrencyBottomButtonTapped(_ sender: Any) {
-        routeToCurrencySelection()
+        routeToCurrencySelection(button: bottomSelectCurrencyButton)
     }
     
     @IBAction func switchButtonTapped(_ sender: Any) {
@@ -74,6 +76,7 @@ extension MainPageViewController {
     }
     
     private func setup() {
+        binding()
         setupCurrencyView()
         setupCurrencyAmountTopTextField()
     }
@@ -119,8 +122,16 @@ private extension MainPageViewController {
         interactor.switchCurrency(request: .init())
     }
     
-    func routeToCurrencySelection() {
-        router.routeToCurrencySelection()
+    func setCurrency(mode: MainPage.SetCurrencyMode) {
+        interactor.setCurrency(request: .init(mode: mode))
+    }
+    
+    func setToken(token: String) {
+        interactor.setToken(request: .init(token: token))
+    }
+    
+    func routeToCurrencySelection(button: SelectCurrencyButton) {
+        router.routeToCurrencySelection(mode: .fromButton(button: button))
     }
 }
 
@@ -144,8 +155,24 @@ extension MainPageViewController: MainPageDisplayable {
         setCurrencyUI(with: viewModel.top, and: viewModel.bottom)
     }
     
+    func displaySetCurrency(viewModel: MainPage.SetCurrency.ViewModel) {
+        setCurrencyUI(with: viewModel.top, and: viewModel.bottom)
+    }
+    
+    func displaySetToken(viewModel: MainPage.SetToken.ViewModel) {
+        
+    }
+    
     func displayError(viewModel: MainPage.Error.ViewModel) {
-        alert(with: "Error", message: viewModel.message)
+        switch viewModel.type {
+        case .default:
+            alert(with: "Error", message: viewModel.message)
+        case .insertToken:
+            alertInputDialog(title: "Alert", message: "Please fill your subscript token.") { [weak self] (text) in
+                guard let self = self else { return }
+                self.setToken(token: text)
+            }
+        }
     }
     
     private func setCurrencyUI(with topCard: MainPage.CurrencyCard, and bottomCard: MainPage.CurrencyCard) {
@@ -170,5 +197,18 @@ extension MainPageViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+//MARk: Binding
+private extension MainPageViewController {
+    func binding() {
+        topSelectCurrencyButton.didSeleted.delegate(to: self) { (self, result) in
+            self.setCurrency(mode: .top(currency: result.0, rate: result.1))
+        }
+        
+        bottomSelectCurrencyButton.didSeleted.delegate(to: self) { (self, result) in
+            self.setCurrency(mode: .bottom(currency: result.0, rate: result.1))
+        }
     }
 }

@@ -15,6 +15,7 @@ struct Config {
     
     private(set) var baseURL: String
     private(set) var apiToken: String
+    private(set) var backupApiToken: String
     
     init(type: ConfigType = .default) {
         switch type {
@@ -23,11 +24,16 @@ struct Config {
             
             baseURL = plist?[kBaseURLKey] as? String ?? ""
             apiToken = plist?[kURLTokenAPIKey] as? String ?? ""
-            
+            backupApiToken = apiToken
         case .customize(let baseURL, let apiToken):
             self.baseURL = baseURL
             self.apiToken = apiToken
+            backupApiToken = apiToken
         }
+    }
+    
+    mutating func setRuntimeToken(token: String) {
+        apiToken = token
     }
 }
 
