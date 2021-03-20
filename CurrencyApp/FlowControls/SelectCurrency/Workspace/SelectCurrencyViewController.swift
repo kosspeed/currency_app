@@ -173,7 +173,7 @@ private extension SelectCurrencyViewController {
 
 //MARK: Displayable
 extension SelectCurrencyViewController: SelectCurrencyDisplayable {
-    func displayCurrencies(viewModel: SelectCurrency.GetCurrencies.ViewModel) {
+    func displayGetCurrencies(viewModel: SelectCurrency.GetCurrencies.ViewModel) {
         currencies = viewModel.currencies
         tableView.reloadData()
     }

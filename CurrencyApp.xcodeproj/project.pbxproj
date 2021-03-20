@@ -50,6 +50,8 @@
 		F076F84D260649E30083AD3A /* SelectCurrency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F076F84C260649E30083AD3A /* SelectCurrency.storyboard */; };
 		F076F85426064B0B0083AD3A /* SelectCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F076F85226064B0B0083AD3A /* SelectCurrencyTableViewCell.swift */; };
 		F076F85526064B0B0083AD3A /* SelectCurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F076F85326064B0B0083AD3A /* SelectCurrencyTableViewCell.xib */; };
+		F076F86C26067B4B0083AD3A /* SelectCurrencyInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F076F86A26067B4B0083AD3A /* SelectCurrencyInteractorTests.swift */; };
+		F076F86D26067B4B0083AD3A /* SelectCurrencyPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F076F86B26067B4B0083AD3A /* SelectCurrencyPresenterTests.swift */; };
 		F0B1D55225F77DAD00CBEFD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B1D55125F77DAD00CBEFD7 /* AppDelegate.swift */; };
 		F0B1D55925F77DAD00CBEFD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0B1D55725F77DAD00CBEFD7 /* Main.storyboard */; };
 		F0B1D55B25F77DAF00CBEFD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0B1D55A25F77DAF00CBEFD7 /* Assets.xcassets */; };
@@ -152,6 +154,8 @@
 		F076F84C260649E30083AD3A /* SelectCurrency.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectCurrency.storyboard; sourceTree = "<group>"; };
 		F076F85226064B0B0083AD3A /* SelectCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		F076F85326064B0B0083AD3A /* SelectCurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCurrencyTableViewCell.xib; sourceTree = "<group>"; };
+		F076F86A26067B4B0083AD3A /* SelectCurrencyInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCurrencyInteractorTests.swift; sourceTree = "<group>"; };
+		F076F86B26067B4B0083AD3A /* SelectCurrencyPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCurrencyPresenterTests.swift; sourceTree = "<group>"; };
 		F0B1D54E25F77DAD00CBEFD7 /* CurrencyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B1D55125F77DAD00CBEFD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0B1D55825F77DAD00CBEFD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		F031FDE42600E01B004F47D5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F076F86926067B230083AD3A /* SelectCurrency */,
 				F031FDE52600E025004F47D5 /* MainPage */,
 			);
 			path = Modules;
@@ -538,6 +543,15 @@
 				F076F85326064B0B0083AD3A /* SelectCurrencyTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F076F86926067B230083AD3A /* SelectCurrency */ = {
+			isa = PBXGroup;
+			children = (
+				F076F86A26067B4B0083AD3A /* SelectCurrencyInteractorTests.swift */,
+				F076F86B26067B4B0083AD3A /* SelectCurrencyPresenterTests.swift */,
+			);
+			path = SelectCurrency;
 			sourceTree = "<group>";
 		};
 		F077955C25F8AF0100368DA3 /* Currency */ = {
@@ -1122,9 +1136,11 @@
 				F0E25BF525F8A95500EA2707 /* CurrencyRepositoryTests.swift in Sources */,
 				F06D27E625F9251400E7BA88 /* CurrencyAPITests.swift in Sources */,
 				F0634EF425F9218600FE5224 /* GetRatesUseCaseTests.swift in Sources */,
+				F076F86D26067B4B0083AD3A /* SelectCurrencyPresenterTests.swift in Sources */,
 				F0634EE725F91F2B00FE5224 /* GetCurrenciesUseCaseTests.swift in Sources */,
 				F0634F0125F922E200FE5224 /* GetConversionUseCaseTests.swift in Sources */,
 				F031FDED2600E048004F47D5 /* MainPageInteractorTests.swift in Sources */,
+				F076F86C26067B4B0083AD3A /* SelectCurrencyInteractorTests.swift in Sources */,
 				F0634EF925F9220800FE5224 /* MockGetConversionUseCase.swift in Sources */,
 				F0555B0C25F8B04E00F23EDD /* MockCurrencyResponseFactory.swift in Sources */,
 				F0634EBF25F91B8400FE5224 /* MockCurrencyRemoteDataSource.swift in Sources */,

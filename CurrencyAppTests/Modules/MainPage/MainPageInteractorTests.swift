@@ -150,6 +150,65 @@ class MainPageInteractorTests: XCTestCase {
         XCTAssertNotNil(presenterSpy.switchCurrencyResponse?.bottom)
         XCTAssert(presenterSpy.presentSwitchCurrencyCalled)
     }
+    
+    func test_setCurrencyTop() {
+        let presenterSpy = MainPagePresenterSpy()
+        
+        sut = MainPageInteractor(presenter: presenterSpy)
+        
+        /* Currencies */
+        let currency = MockCurrencyResponseFactory
+            .currenciesResponse
+            .entity
+            .details[0]
+        
+        /* Rates */
+        let rate = MockCurrencyResponseFactory
+            .ratesResponse
+            .entity
+            .details[0]
+        
+        sut.setCurrency(request: .init(mode: .top(currency: currency, rate: rate)))
+        
+        XCTAssertNotNil(presenterSpy.setCurrencyResponse)
+        XCTAssertNotNil(presenterSpy.setCurrencyResponse?.top)
+        XCTAssert(presenterSpy.presentSetCurrencyCalled)
+    }
+    
+    func test_setCurrencyBottom() {
+        let presenterSpy = MainPagePresenterSpy()
+        
+        sut = MainPageInteractor(presenter: presenterSpy)
+        
+        /* Currencies */
+        let currency = MockCurrencyResponseFactory
+            .currenciesResponse
+            .entity
+            .details[0]
+        
+        /* Rates */
+        let rate = MockCurrencyResponseFactory
+            .ratesResponse
+            .entity
+            .details[0]
+        
+        sut.setCurrency(request: .init(mode: .bottom(currency: currency, rate: rate)))
+        
+        XCTAssertNotNil(presenterSpy.setCurrencyResponse)
+        XCTAssertNotNil(presenterSpy.setCurrencyResponse?.bottom)
+        XCTAssert(presenterSpy.presentSetCurrencyCalled)
+    }
+    
+    func test_setToken() {
+        let presenterSpy = MainPagePresenterSpy()
+        
+        sut = MainPageInteractor(presenter: presenterSpy)
+        
+        sut.setToken(request: .init(token: ""))
+        
+        XCTAssertNotNil(presenterSpy.setTokenResponse)
+        XCTAssert(presenterSpy.presentSetTokenCalled)
+    }
 }
 
 //Spy
@@ -159,12 +218,16 @@ extension MainPageInteractorTests {
         var presentGetRatesCalled = false
         var presentGetConversionCalled = false
         var presentSwitchCurrencyCalled = false
+        var presentSetCurrencyCalled = false
+        var presentSetTokenCalled = false
         var presentErrorCalled = false
         
         var getCurrenciesResponse: MainPage.GetCurrencies.Response?
         var getRatesResponse: MainPage.GetRates.Response?
         var getConversionResponse: MainPage.GetConversion.Response?
         var switchCurrencyResponse: MainPage.SwitchCurrency.Response?
+        var setCurrencyResponse: MainPage.SetCurrency.Response?
+        var setTokenResponse: MainPage.SetToken.Response?
         var errorResponse: MainPage.Error.Response?
         
         func presentGetCurrencies(response: MainPage.GetCurrencies.Response) {
@@ -185,6 +248,16 @@ extension MainPageInteractorTests {
         func presentSwitchCurrency(response: MainPage.SwitchCurrency.Response) {
             presentSwitchCurrencyCalled = true
             switchCurrencyResponse = response
+        }
+        
+        func presentSetCurrency(response: MainPage.SetCurrency.Response) {
+            presentSetCurrencyCalled = true
+            setCurrencyResponse = response
+        }
+        
+        func presentSetToken(response: MainPage.SetToken.Response) {
+            presentSetTokenCalled = true
+            setTokenResponse = response
         }
         
         func presentError(response: MainPage.Error.Response) {

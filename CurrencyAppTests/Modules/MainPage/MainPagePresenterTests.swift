@@ -85,6 +85,38 @@ class MainPagePresenterTests: XCTestCase {
         XCTAssert(displayableSpy.displaySwitchCurrencyCalled)
     }
     
+    func test_presentSetCurrency() {
+        let displayableSpy = MainPageDisplayableSpy()
+        
+        sut = MainPagePresenter(displayable: displayableSpy)
+        
+        let currencyDetails = MockCurrencyResponseFactory
+            .currenciesResponse
+            .entity
+            .details
+        
+        let topCurrency = currencyDetails[0]
+        let bottomCurrency = currencyDetails[1]
+        
+        sut.presentSetCurrency(response: .init(top: topCurrency, bottom: bottomCurrency))
+        
+        XCTAssertNotNil(displayableSpy.setCurrencyViewModel)
+        XCTAssertNotNil(displayableSpy.setCurrencyViewModel?.top)
+        XCTAssertNotNil(displayableSpy.setCurrencyViewModel?.bottom)
+        XCTAssert(displayableSpy.displaySetCurrencyCalled)
+    }
+    
+    func test_presentSetToken() {
+        let displayableSpy = MainPageDisplayableSpy()
+        
+        sut = MainPagePresenter(displayable: displayableSpy)
+        
+        sut.presentSetToken(response: .init())
+        
+        XCTAssertNotNil(displayableSpy.setTokenViewModel)
+        XCTAssert(displayableSpy.displaySetTokenCalled)
+    }
+    
     func test_presentError() {
         let displayableSpy = MainPageDisplayableSpy()
         
@@ -99,6 +131,25 @@ class MainPagePresenterTests: XCTestCase {
         XCTAssertNotNil(displayableSpy.errorViewModel)
         XCTAssertNotNil(displayableSpy.errorViewModel?.code)
         XCTAssertNotNil(displayableSpy.errorViewModel?.message)
+        XCTAssertNotNil(displayableSpy.errorViewModel?.type)
+        XCTAssert(displayableSpy.displayErrorCalled)
+    }
+    
+    func test_presentError9999() {
+        let displayableSpy = MainPageDisplayableSpy()
+        
+        sut = MainPagePresenter(displayable: displayableSpy)
+        
+        let error = MockCurrencyErrorResponseFactory
+            .customErrorResponse(code: 9999, message: "")
+            .entity
+        
+        sut.presentError(response: .init(error: error))
+        
+        XCTAssertNotNil(displayableSpy.errorViewModel)
+        XCTAssertNotNil(displayableSpy.errorViewModel?.code)
+        XCTAssertNotNil(displayableSpy.errorViewModel?.message)
+        XCTAssertNotNil(displayableSpy.errorViewModel?.type)
         XCTAssert(displayableSpy.displayErrorCalled)
     }
 }
@@ -109,12 +160,16 @@ extension MainPagePresenterTests {
         var displayGetRatesCalled = false
         var displayGetConversionCalled = false
         var displaySwitchCurrencyCalled = false
+        var displaySetCurrencyCalled = false
+        var displaySetTokenCalled = false
         var displayErrorCalled = false
         
         var getCurrenciesViewModel: MainPage.GetCurrencies.ViewModel?
         var getRatesViewModel: MainPage.GetRates.ViewModel?
         var getConversionViewModel: MainPage.GetConversion.ViewModel?
         var switchCurrencyViewModel: MainPage.SwitchCurrency.ViewModel?
+        var setCurrencyViewModel: MainPage.SetCurrency.ViewModel?
+        var setTokenViewModel: MainPage.SetToken.ViewModel?
         var errorViewModel: MainPage.Error.ViewModel?
         
         func displayGetCurrencies(viewModel: MainPage.GetCurrencies.ViewModel) {
@@ -135,6 +190,16 @@ extension MainPagePresenterTests {
         func displaySwitchCurrency(viewModel: MainPage.SwitchCurrency.ViewModel) {
             displaySwitchCurrencyCalled = true
             switchCurrencyViewModel = viewModel
+        }
+        
+        func displaySetCurrency(viewModel: MainPage.SetCurrency.ViewModel) {
+            displaySetCurrencyCalled = true
+            setCurrencyViewModel = viewModel
+        }
+        
+        func displaySetToken(viewModel: MainPage.SetToken.ViewModel) {
+            displaySetTokenCalled = true
+            setTokenViewModel = viewModel
         }
         
         func displayError(viewModel: MainPage.Error.ViewModel) {

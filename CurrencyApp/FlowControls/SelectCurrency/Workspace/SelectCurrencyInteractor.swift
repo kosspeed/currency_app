@@ -44,6 +44,8 @@ extension SelectCurrencyInteractor: SelectCurrencyBusinessLogic {
             filteredCurrencies = nil
             filteredRates = nil
         }
+        
+        presenter.presentSetSearchState(response: .init())
     }
     
     func search(request: SelectCurrency.Search.Request) {

@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: ViewController
 protocol SelectCurrencyDisplayable: class {
-    func displayCurrencies(viewModel: SelectCurrency.GetCurrencies.ViewModel)
+    func displayGetCurrencies(viewModel: SelectCurrency.GetCurrencies.ViewModel)
     func displaySetSearchState(viewModel: SelectCurrency.SetSearchState.ViewModel)
     func displaySearch(viewModel: SelectCurrency.Search.ViewModel)
     func displayQueryCurrencyToExecute(viewModel: SelectCurrency.QueryCurrencyToExecute.ViewModel)
