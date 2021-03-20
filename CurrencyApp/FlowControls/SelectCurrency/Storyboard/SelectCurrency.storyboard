@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Currency View Controller-->
+        <scene sceneID="Dof-Xk-I74">
+            <objects>
+                <viewController storyboardIdentifier="SelectCurrencyViewControllerID" id="UCF-kp-y5u" customClass="SelectCurrencyViewController" customModule="CurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gLH-Hp-ivm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2C-Ad-kYo">
+                                <rect key="frame" x="20" y="74" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" red="0.23188900949999999" green="0.2460737526" blue="0.31373661759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="vgC-nO-pDD">
+                                <rect key="frame" x="30" y="113.5" width="354" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kw-T0-cAQ">
+                                <rect key="frame" x="20" y="71" width="25" height="25"/>
+                                <state key="normal" image="ic_left_chevron"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="UCF-kp-y5u" eventType="touchUpInside" id="uvQ-ua-Gvi"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XEc-Og-QFq">
+                                <rect key="frame" x="0.0" y="169.5" width="414" height="692.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mTm-Lb-lgV"/>
+                        <color key="backgroundColor" red="0.98538478409999997" green="0.98620501790000004" blue="0.98478483569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="mTm-Lb-lgV" firstAttribute="trailing" secondItem="XEc-Og-QFq" secondAttribute="trailing" id="BUS-qs-rxH"/>
+                            <constraint firstItem="XEc-Og-QFq" firstAttribute="leading" secondItem="mTm-Lb-lgV" secondAttribute="leading" id="Ctc-1w-syS"/>
+                            <constraint firstItem="vgC-nO-pDD" firstAttribute="trailing" secondItem="mTm-Lb-lgV" secondAttribute="trailing" constant="-30" id="FOn-v6-CKz"/>
+                            <constraint firstItem="mTm-Lb-lgV" firstAttribute="bottom" secondItem="XEc-Og-QFq" secondAttribute="bottom" id="Nr4-fU-H5x"/>
+                            <constraint firstItem="vgC-nO-pDD" firstAttribute="leading" secondItem="mTm-Lb-lgV" secondAttribute="leading" constant="30" id="bAw-rG-3jS"/>
+                            <constraint firstItem="vgC-nO-pDD" firstAttribute="top" secondItem="y2C-Ad-kYo" secondAttribute="bottom" constant="20" id="g8i-2V-4kG"/>
+                            <constraint firstItem="7kw-T0-cAQ" firstAttribute="centerY" secondItem="y2C-Ad-kYo" secondAttribute="centerY" id="iCR-bT-tRI"/>
+                            <constraint firstItem="mTm-Lb-lgV" firstAttribute="trailing" secondItem="y2C-Ad-kYo" secondAttribute="trailing" constant="20" id="kBr-Kk-O1D"/>
+                            <constraint firstItem="XEc-Og-QFq" firstAttribute="top" secondItem="vgC-nO-pDD" secondAttribute="bottom" id="pSY-Hg-fZg"/>
+                            <constraint firstItem="y2C-Ad-kYo" firstAttribute="top" secondItem="mTm-Lb-lgV" secondAttribute="top" constant="30" id="rVG-HP-WxR"/>
+                            <constraint firstItem="7kw-T0-cAQ" firstAttribute="leading" secondItem="mTm-Lb-lgV" secondAttribute="leading" constant="20" id="xbQ-Fs-3Az"/>
+                            <constraint firstItem="y2C-Ad-kYo" firstAttribute="leading" secondItem="mTm-Lb-lgV" secondAttribute="leading" constant="20" id="xsO-ba-eIW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ekL-0u-sXb"/>
+                    <connections>
+                        <outlet property="backButton" destination="7kw-T0-cAQ" id="ldT-Fk-TiL"/>
+                        <outlet property="searchBar" destination="vgC-nO-pDD" id="bOJ-Sp-Zng"/>
+                        <outlet property="tableView" destination="XEc-Og-QFq" id="9et-jA-uiL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFj-Nr-8Dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955.07246376811599" y="40.848214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_left_chevron" width="170.66667175292969" height="170.66667175292969"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

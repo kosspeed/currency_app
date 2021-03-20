@@ -14,6 +14,8 @@ protocol MainPageDisplayable: class {
     func displayGetRates(viewModel: MainPage.GetRates.ViewModel)
     func displayGetConversion(viewModel: MainPage.GetConversion.ViewModel)
     func displaySwitchCurrency(viewModel: MainPage.SwitchCurrency.ViewModel)
+    func displaySetCurrency(viewModel: MainPage.SetCurrency.ViewModel)
+    func displaySetToken(viewModel: MainPage.SetToken.ViewModel)
     func displayError(viewModel: MainPage.Error.ViewModel)
 }
 
@@ -23,6 +25,8 @@ protocol MainPageBusinessLogic {
     func getRates(request: MainPage.GetRates.Request)
     func getConversion(request: MainPage.GetConversion.Request)
     func switchCurrency(request: MainPage.SwitchCurrency.Request)
+    func setCurrency(request: MainPage.SetCurrency.Request)
+    func setToken(request: MainPage.SetToken.Request)
 }
 
 //MARK: Presenter
@@ -31,12 +35,14 @@ protocol MainPagePresentable {
     func presentGetRates(response: MainPage.GetRates.Response)
     func presentGetConversion(response: MainPage.GetConversion.Response)
     func presentSwitchCurrency(response: MainPage.SwitchCurrency.Response)
+    func presentSetCurrency(response: MainPage.SetCurrency.Response)
+    func presentSetToken(response: MainPage.SetToken.Response)
     func presentError(response: MainPage.Error.Response)
 }
 
 //MARK: Routable
 protocol MainPageRoutable {
-    func routeToCurrencySelection()
+    func routeToCurrencySelection(mode: SelectCurrencyMode)
 }
 
 //MARK: DataStore

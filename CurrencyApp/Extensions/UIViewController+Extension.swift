@@ -18,4 +18,35 @@ extension UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    func alertInputDialog(title: String? = nil,
+                          message: String? = nil,
+                          actionHandler: ((_ text: String) -> Void)? = nil) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = nil
+            textField.keyboardType = .default
+        }
+        
+        let textFieldAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            guard let textField = alert.textFields?.first, let text = textField.text else {
+                return
+            }
+            
+            
+            if !text.isEmpty {
+                actionHandler?(text)
+            }
+        }
+        
+        alert.addAction(textFieldAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }

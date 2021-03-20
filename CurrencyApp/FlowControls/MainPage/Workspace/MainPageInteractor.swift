@@ -89,4 +89,24 @@ extension MainPageInteractor: MainPageBusinessLogic {
         presenter.presentSwitchCurrency(response: .init(top: topCurrency,
                                                         bottom: bottomCurrency))
     }
+    
+    func setCurrency(request: MainPage.SetCurrency.Request) {
+        switch request.mode {
+        case .top(let currency, let rate):
+            topCurrency = currency
+            topRate = rate
+        case .bottom(let currency, let rate):
+            bottomCurrency = currency
+            bottomRate = rate
+        }
+        
+        presenter.presentSetCurrency(response: .init(top: topCurrency,
+                                                     bottom: bottomCurrency))
+    }
+    
+    func setToken(request: MainPage.SetToken.Request) {
+        Config.default.setRuntimeToken(token: request.token)
+    
+        presenter.presentSetToken(response: .init())
+    }
 }
